@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Personal de Alexis López Pérez</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #1f1f1f;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #ff6f61 10%, transparent 10.01%);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            animation: moveBackground 10s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+            color: #ff6f61;
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin: 10px 0 0;
+            color: #e0e0e0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navegación */
+        nav {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ff6f61;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff6f61;
+            color: #0a0a0a;
+        }
+
+        /* Secciones */
+        section {
+            background-color: #1f1f1f;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #ff6f61 10%, transparent 10.01%);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            animation: moveBackground 10s linear infinite;
+        }
+
+        section h2 {
+            color: #ff6f61;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        section ul {
+            list-style: none;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        section ul li {
+            background-color: #2a2a2a;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Imagen */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #1f1f1f;
+            color: #ff6f61;
+            border-radius: 20px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #ff6f61 10%, transparent 10.01%);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            animation: moveBackground 10s linear infinite;
+        }
+
+        footer p {
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Efectos adicionales */
+        a {
+            color: #ff6f61;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Alexis López Pérez</h1>
+            <p>Estudiante del Centro de Estudios de Bachillerato 5/4</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#acerca">Acerca de mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <section id="inicio">
+            <h2>Inicio</h2>
+            <p>¡Hola! Soy Alexis López Pérez, estudiante del Centro de Estudios de Bachillerato 5/4. Me apasiona el ambiente sonidero, bailar, hablar por micrófono, el fútbol y el voleibol.</p>
+            <img src="https://via.placeholder.com/800x400" alt="Imagen de Alexis López Pérez">
+        </section>
+
+        <section id="acerca">
+            <h2>Acerca de mí</h2>
+            <p>Me llamo Alexis López Pérez, y actualmente estoy estudiando en el CEB 5/4. Mis intereses incluyen el ambiente sonidero, bailar, hablar por micrófono, el fútbol y el voleibol. Me gusta aprender cosas nuevas y siempre estoy buscando mejorar mis habilidades.</p>
+            <h3>Mis intereses:</h3>
+            <ul>
+                <li>Ambiente sonidero</li>
+                <li>Bailar</li>
+                <li>Hablar por micrófono</li>
+                <li>Fútbol</li>
+                <li>Voleibol</li>
+            </ul>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Puedes contactarme a través de mi correo electrónico: <a href="mailto:alexislopezp5--4@dgb.edu.mx">alexislopezp5--4@dgb.edu.mx</a>.</p>
+        </section>
+
+        <footer>
+            <p>Derechos reservados &copy; 2025 - Alexis López Pérez</p>
+        </footer>
+    </div>
+
+</body>
+</html>
