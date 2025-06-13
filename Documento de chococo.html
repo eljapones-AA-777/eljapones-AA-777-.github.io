@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Personal de Alexis López Pérez</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .login-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .login-container button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .mensaje-error {
+            color: red;
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #1f1f1f;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #ff6f61 10%, transparent 10.01%);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            animation: moveBackground 10s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+            color: #ff6f61;
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin: 10px 0 0;
+            color: #e0e0e0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navegación */
+        nav {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ff6f61;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff6f61;
+            color: #0a0a0a;
+        }
+
+        section {
+            background-color: #1f1f1f;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #ff6f61 10%, transparent 10.01%);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            animation: moveBackground 10s linear infinite;
+        }
+
+        section h2 {
+            color: #ff6f61;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        section p, section ul {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .perfil-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .galeria-svg {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #1f1f1f;
+            color: #ff6f61;
+            border-radius: 20px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #ff6f61 10%, transparent 10.01%);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            animation: moveBackground 10s linear infinite;
+        }
+
+        footer p {
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="login">
+        <h2>Iniciar sesión</h2>
+        <input type="text" id="usuario" placeholder="Usuario"><br>
+        <input type="password" id="contrasena" placeholder="Contraseña"><br>
+        <button onclick="validarLogin()">Entrar</button>
+        <p id="mensaje" class="mensaje-error"></p>
+    </div>
+
+    <div class="container" id="main-content" style="display:none;">
+        <header>
+            <h1>Alexis López Pérez</h1>
+            <p>Estudiante del Centro de Estudios de Bachillerato 5/4</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#acerca">Acerca de mí</a></li>
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#museo">Museo Digital</a></li>
+                <li><a href="#diseno">Diseño Digital</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <section id="inicio">
+            <h2>Inicio</h2>
+            <p>¡Hola! Soy Alexis López Pérez...</p>
+            <img src="Foto de alexis.jpg" alt="Imagen de Alexis López Pérez">
+        </section>
+
+        <section id="acerca">
+            <h2>Acerca de mí</h2>
+            <p>Me llamo Alexis López Pérez...</p>
+            <ul>
+                <li>Ambiente sonidero</li>
+                <li>Bailar</li>
+                <li>Hablar por micrófono</li>
+                <li>Fútbol</li>
+                <li>Voleibol</li>
+            </ul>
+        </section>
+
+        <section id="perfil">
+            <h2>Perfil de Usuario</h2>
+            <div class="perfil-wrapper">
+                <img src="https://s2.abcstatics.com/Media/201103/17/hirohito-1943--644x362.jpg" alt="Foto de perfil">
+                <div class="perfil-content">
+                    <h3>Alexis Lopez Perez</h3>
+                    <p>Soy un apasionado del diseño web, la programación y la cumbia.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="museo">
+            <h2>Museo Digital</h2>
+            <div class="galeria-svg">
+                <img src="dibujo-1.svg" alt="Obra 1">
+                <img src="cat.svg" alt="Obra 2">
+                <img src="pacman.svg" alt="Obra 3">
+                <img src="TAZA FOFO.svg" alt="Obra 4">
+            </div>
+        </section>
+
+        <section id="diseno">
+            <h2>Diseño Digital</h2>
+            <video controls>
+                <source src="niDkwHvV.mp4" type="video/mp4">
+                Tu navegador no soporta video HTML5.
+            </video>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Puedes contactarme a través de mi correo electrónico: <a href="mailto:alexislopezp5--4@dgb.edu.mx">alexislopezp5--4@dgb.edu.mx</a>.</p>
+        </section>
+
+        <footer>
+            <p>Derechos reservados &copy; 2025 - Alexis López Pérez</p>
+        </footer>
+    </div>
+
+    <script>
+        function validarLogin() {
+            const usuario = document.getElementById("usuario").value.trim().toUpperCase();
+            const contrasena = document.getElementById("contrasena").value;
+            const mensaje = document.getElementById("mensaje");
+
+            if (usuario === "JAPONES" && contrasena === "12345") {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            } else {
+                mensaje.textContent = "Usuario o contraseña incorrectos.";
+            }
+        }
+    </script>
+</body>
+</html>
